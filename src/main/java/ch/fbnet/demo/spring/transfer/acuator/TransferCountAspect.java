@@ -20,7 +20,7 @@ public class TransferCountAspect {
     public TransferCountAspect(CounterService counterService) {
         this.counterService = counterService;
     }
-    @AfterReturning("execution(* ch.fbnet.demo.spring.transfer.service.TransferService+.*(..)")
+    @AfterReturning("execution(* ch.fbnet.demo.spring.transfer.service.TransferService+.*(..))")
     public void afterSuccessfulTransferCall(JoinPoint joinPoint){
         counterService.increment(joinPoint.getSignature().getName());
 
